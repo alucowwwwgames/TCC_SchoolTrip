@@ -1,1 +1,1 @@
-# TCC_SchoolTrip
+# TCC_SchoolTrip project
