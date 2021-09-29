@@ -42,15 +42,6 @@ Mensagem nvarchar(255) not null,
 )
 
 
-
-
-
-
-
-
-
-
-
 use master
 drop table aluno
 drop table professor
@@ -65,6 +56,11 @@ select * from Aluno
 use passeio
 
 select * from Professor
+select * from Aluno
+
+delete from Professor
+delete from Aluno
 
 drop database passeio
 
+select * from Contato

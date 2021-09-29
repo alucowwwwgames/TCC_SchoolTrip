@@ -5,18 +5,15 @@
 <%@ page import="dao.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
  <% 
-   String Nome_prof = request.getParameter("INome_Prof");
-   String RM_Prof = request.getParameter("IRM_Prof");
-   UserDao.Professor(Nome_prof,RM_Prof);
+   String Nome_prof = request.getParameter("iNome_Prof");
+   String RM_prof = request.getParameter("iRM_Prof");
+   boolean exist = UserDao.professorExistente(Nome_prof,RM_prof);
+   if(!exist){
+   UserDao.Professor(Nome_prof,RM_prof);
+   out.println("<h1>no</h1>");
+   }
+   else{
+	   out.println("<h1>yes</h1>");
+   }
   %>
-</body>
-</html>
