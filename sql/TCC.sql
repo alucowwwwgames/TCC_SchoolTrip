@@ -6,13 +6,17 @@ create table Aluno(
 ID_aluno int primary key identity(1,1),
 RM int ,
 Nome_alu nvarchar(255) not null,
+Email_alu nvarchar(255)not null,
+Senha_alu nvarchar(10) not null,
 Turma nvarchar(255) not null,
 );
 
 create table Professor (
 ID_professor int primary key identity(1,1),
 Nome_prof nvarchar(255) not null,
-RM_Prof int ,
+RM_Prof int not null ,
+Email_prof nvarchar(255)not null,
+Senha_prof nvarchar(10) not null,
 );
 
 create table Passeio(
@@ -42,6 +46,15 @@ Mensagem nvarchar(255) not null,
 )
 
 
+
+
+
+
+
+
+
+
+
 use master
 drop table aluno
 drop table professor
@@ -56,11 +69,6 @@ select * from Aluno
 use passeio
 
 select * from Professor
-select * from Aluno
-
-delete from Professor
-delete from Aluno
 
 drop database passeio
 
-select * from Contato
