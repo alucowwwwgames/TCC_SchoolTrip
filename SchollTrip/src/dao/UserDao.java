@@ -11,7 +11,7 @@ public class UserDao {
 		int rCont;
 		   try{
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=passeio", "sa", "1234567");
+			Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=passeio", "sa", "102938");
 			
 			PreparedStatement ps = con.prepareStatement("insert into Contato (Email_contato,Mensagem) values (?,?)");
 			ps.setString(1,Email_contato);
@@ -28,14 +28,16 @@ public class UserDao {
 		   }
 	}
 	
-	public static void Professor(String Nome_prof, String  RM_Prof) {
+	public static void Professor(String Nome_prof, String  RM_prof,String Email_prof,String Senha_prof) {
 		 try{
 				Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-				Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=passeio", "sa", "1234567");
+				Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=passeio", "sa", "102938");
 				
-				PreparedStatement ps = con.prepareStatement("insert into Professor(Nome_prof,RM_Prof) values (?,?)");
+				PreparedStatement ps = con.prepareStatement("insert into Professor(Nome_prof, RM_prof, Email_prof, Senha_prof) values (?,?,?,?)");
 				ps.setString(1, Nome_prof);
-				ps.setString(2, RM_Prof);
+				ps.setString(2, RM_prof);
+				ps.setString(3, Email_prof);
+				ps.setString(4, Senha_prof);
 				ps.executeUpdate();
 			   }catch(Exception e){
 				   System.out.println(e.getMessage());
@@ -43,13 +45,12 @@ public class UserDao {
 	}
 	
 
-	public static boolean professorExistente(String Nome_prof, String professorRM) {
+	public static boolean professorExistente(String Nome_prof, String RM_prof) {
 		boolean existPro = false;
-		int RM = Integer.parseInt(professorRM);
 		try{
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=passeio", "sa", "1234567");
-			PreparedStatement ps = con.prepareStatement("select Nome_prof,RM_Prof from Professor where RM_Prof = "+RM);
+			Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=passeio", "sa", "102938");
+			PreparedStatement ps = con.prepareStatement("select Nome_prof,RM_Prof from Professor where RM_Prof = '"+RM_prof+"'");
 			/* Caso Rm não seja unico
 			PreparedStatement ps = con.prepareStatement("select Nome_prof,RM_Prof from Professor where RM_Prof = "+RM+" and RM_Prof = '"+Nome_prof+"'");
 			*/
@@ -69,16 +70,18 @@ public class UserDao {
 	}
 	
 	
-	public static void Aluno(String Nome_alu, String  RM,String Turma) {
+	public static void Aluno(String RM,String Nome_alu,String Email_alu, String  Senha_alu,String Turma) {
 		
 		try{
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=passeio", "sa", "1234567");
+			Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=passeio", "sa", "102938");
 			
-			PreparedStatement ps = con.prepareStatement("insert into Aluno(Nome_alu,RM,Turma) values (?,?,?)");
-			ps.setString(1, Nome_alu);
-			ps.setString(2, RM);
-			ps.setString(3, Turma);
+			PreparedStatement ps = con.prepareStatement("insert into Aluno(RM,Nome_alu,Email_alu,Senha_alu,Turma) values (?,?,?,?,?)");
+			ps.setString(1, RM);
+			ps.setString(2, Nome_alu);
+			ps.setString(3, Email_alu);
+			ps.setString(4, Senha_alu);
+			ps.setString(5, Turma);
 			ps.executeUpdate();
 		   }catch(Exception e){
 			   System.out.println(e.getMessage());
@@ -86,11 +89,11 @@ public class UserDao {
 		
 	}
 	
-    public static boolean AlunoExistente(String Nome_alu, String RM,String Turma) {
+    public static boolean AlunoExistente(String Nome_alu,String  RM, String Turma) {
 		boolean existAl = false;
 		try{
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=passeio", "sa", "1234567");
+			Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=passeio", "sa", "102938");
 			PreparedStatement ps = con.prepareStatement("select Nome_alu,RM from Aluno where RM = '"+RM+"'");
 			/* Caso Rm não seja unico
 			PreparedStatement ps = con.prepareStatement("select Nome_alu,RM from Aluno where RM = "+RM+" and Nome_alu = '"+Nome_alu+"'");
