@@ -6,8 +6,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <% 
+   String RM_prof = request.getParameter("iRM_Prof");  
    String Nome_prof = request.getParameter("iNome_Prof");
-   String RM_prof = request.getParameter("iRM_Prof");
    String Email_prof = request.getParameter("iEmail_Prof");
    String Senha_prof = request.getParameter("iSenha_Prof");
    

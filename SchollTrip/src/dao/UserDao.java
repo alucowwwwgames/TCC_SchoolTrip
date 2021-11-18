@@ -28,14 +28,15 @@ public class UserDao {
 		   }
 	}
 	
-	public static void Professor(String Nome_prof, String  RM_prof,String Email_prof,String Senha_prof) {
+	public static void Professor(String  RM_prof, String Nome_prof, String Email_prof,String Senha_prof) {
 		 try{
 				Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 				Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=passeio", "sa", "102938");
 				
-				PreparedStatement ps = con.prepareStatement("insert into Professor(Nome_prof, RM_prof, Email_prof, Senha_prof) values (?,?,?,?)");
-				ps.setString(1, Nome_prof);
+				PreparedStatement ps = con.prepareStatement("insert into Professor(RM_prof, Nome_prof, Email_prof, Senha_prof) values (?,?,?,?)");
+				
 				ps.setString(2, RM_prof);
+				ps.setString(1, Nome_prof);
 				ps.setString(3, Email_prof);
 				ps.setString(4, Senha_prof);
 				ps.executeUpdate();

@@ -64,11 +64,11 @@ function validaFormP() {
 	var emailP = document.getElementById("Email_prof").value;
 	var senhaP = document.getElementById("senha_prof").value;
 
-	if (nameP == "" || nameP == null || nameP.length < 3) {
-		swal("Insira um nome valido", "");
-		return false;
-	} else if (RMPr == "" || RMPr == null || isNaN(RMPr) || RMPr.length < 6) {
+	if (RMPr == "" || RMPr == null || isNaN(RMPr) || RMPr.length < 6) {
 		swal("Insira um RM valido", "");
+		return false;
+	} else if (nameP == "" || nameP == null || nameP.length < 3) {
+		swal("Insira um nome valido", "");
 		return false;
 	} else if (emailP == "" || emailP == null) {
 		swal("Insira um email valido", "");
@@ -79,8 +79,8 @@ function validaFormP() {
 	} else {
 		$.post(
 			"../RegistrarProfessor.jsp", {
-				iNome_Prof: nameP,
 				iRM_Prof: RMPr,
+				iNome_Prof: nameP,
 				iEmail_Prof: emailP,
 				iSenha_Prof: senhaP,
 			}
@@ -96,8 +96,8 @@ function validaFormP() {
 			} else {
 				var message = decodeURIComponent(escape("Inscrição feita com sucesso"));
 				swal(message, "").then(function() {
-					document.getElementById("nameP").value = "";
 					document.getElementById("RMP").value = "";
+					document.getElementById("nameP").value = "";
 					document.getElementById("Email_prof").value = "";
 					document.getElementById("senha_prof").value = "";
 

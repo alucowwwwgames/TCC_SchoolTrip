@@ -13,8 +13,8 @@ Turma nvarchar(255) not null,
 
 create table Professor (
 ID_professor int primary key identity(1,1),
-Nome_prof nvarchar(255) not null,
 RM_Prof int not null ,
+Nome_prof nvarchar(255) not null,
 Email_prof nvarchar(255)not null,
 Senha_prof nvarchar(10) not null,
 );
@@ -49,10 +49,10 @@ Mensagem nvarchar(255) not null,
 
 
 
+select * from aluno
 
 
-
-
+select * from Professor
 
 
 use master

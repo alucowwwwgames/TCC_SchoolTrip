@@ -18,7 +18,7 @@
       <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"/>
       <link rel="stylesheet" href="css/animate.min.css"/> 
       <link rel="stylesheet" href="css/style.css"/> <!-- css do site -->
-      <link rel="stylesheet" href="css/magnific-popup.css"/><!-- pop up da mensagem de login -->>
+      <link rel="stylesheet" href="css/magnific-popup.css"/><!-- pop up da mensagem de login -->
    </head>
    <body>
      
@@ -267,10 +267,12 @@
                            Email:
                            </h3>
                            <input type="text" placeholder="Email" id="email_alu"  name="email"/>
+                            <p></p>
                             <h3>
                            Senha:
                            </h3>
                            <input type="password" placeholder="Senha" id="senha_alu"  name="email"/>
+                           <p></p>
                            <h3>
                            Turma:
                            </h3>
@@ -288,6 +290,12 @@
                      <div class="price-table highlighted">
                         <div class="table-inner text-center">
                         <form id="FormProfessor" onsubmit="return validaFormP();" method="post"> <!-- conta do professor -->
+                          
+                          <h3>
+                          RM: 
+                          </h3>
+                          <input type="text" placeholder="RM" id="RMP" maxlength="6" min="6" name="RM_Prof"/>
+                          <p></p>
                           <h3>
                            Nome Completo:
                            </h3>
@@ -297,15 +305,11 @@
                            Email:
                            </h3>
                            <input type="text" placeholder="Email" id="Email_prof"  name="email"/>
+                            <p></p>
                             <h3>
                            Senha:
                            </h3>
                            <input type="password" placeholder="Senha" id="senha_prof"  name="email"/>
-                           <h3>
-                           RM:
-                           </h3>
-                           <input type="text" placeholder="RM" id="RMP" maxlength="6" min="6" name="RM_Prof"/>
-                           
                            <p></p>
                            <br/>
                            <input type="submit" class="btn btn-blue" value="Salvar" id="sumbtd"/>  
